@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const { connectDatabase } = require("./db/connect");
-const { getAbsolutePath } = require("./lib/utils");
 require("dotenv").config();
 
 const app = express();
@@ -16,7 +15,7 @@ app.all("*", (req, res) => {
   try {
     res.status(404);
     if (req.accepts("html")) {
-      res.sendFile(getAbsolutePath("pages/404.html"));
+      res.sendFile(path.join(__dirname, "pages", "404.html"));
     } else if (req.accepts("json")) {
       res.json({ error: "404 Not Found" });
     } else {

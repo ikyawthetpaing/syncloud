@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syncloud Documentation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      code {
+        background-color: #f5f5f5;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Syncloud Documentation</h1>
+    <p>
+      Welcome to the Syncloud documentation! This guide provides details on how
+      to use the API endpoints.
+    </p>
+
+    <h2>Getting Started</h2>
+    <ol>
+      <li>
+        Clone the repository:
+        <code>git clone https://github.com/ikyawthetpaing/syncloud.git</code>
+      </li>
+      <li>Install dependencies: <code>cd syncloud && npm install</code></li>
+      <li>Run the API: <code>npm start</code></li>
+      <li>
+        Explore API endpoints at
+        <a href="http://localhost:3000">http://localhost:3000</a>
+      </li>
+    </ol>
+
+    <h2>API Documentation</h2>
+    <h3>List of Countries</h3>
+    <p>Endpoint: <code>/api/v1/countries</code></p>
+    <p>Method: GET</p>
+    <p>
+      Retrieve a list of countries. You can include a comma-separated list of
+      fields to filter the response.
+    </p>
+    <p>Query Parameters:</p>
+    <ul>
+      <li>
+        <code>fields</code>: Comma-separated list of fields to include in the
+        response.
+      </li>
+    </ul>
+    <p>Example Requests:</p>
+    <pre>
+    GET /api/v1/countries
+    GET /api/v1/countries?fields=name,iso2,flag,states.name,states.state_code,states.cities.name
+  </pre
+    >
+
+    <h3>Country by ISO2 Code</h3>
+    <p>Endpoint: <code>/api/v1/countries/:code</code></p>
+    <p>Method: GET</p>
+    <p>Retrieve information about a specific country based on its ISO2 code.</p>
+    <p>Path Parameter:</p>
+    <ul>
+      <li><code>code</code>: ISO2 code of the country.</li>
+    </ul>
+    <p>Query Parameters:</p>
+    <ul>
+      <li>
+        <code>fields</code>: Comma-separated list of fields to include in the
+        response.
+      </li>
+    </ul>
+    <p>Example Requests:</p>
+    <pre>
+    GET /api/v1/countries/US
+    GET /api/v1/countries/US?fields=name,iso2,flag,states.name,states.state_code,states.cities.name
+  </pre
+    >
+
+    <h2>Contributing</h2>
+    <p>
+      We welcome contributions from the community! Please follow our
+      <a href="CONTRIBUTING.md">Contribution Guidelines</a> if you'd like to
+      contribute to Syncloud.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      If you have questions or need assistance,
+      <a href="mailto:ikyawthetpaing@gmail.com">contact us</a>.
+    </p>
+
+    <h2>License</h2>
+    <p>
+      This project is licensed under the <a href="license.txt">MIT License</a>.
+    </p>
+  </body>
+</html>

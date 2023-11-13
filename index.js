@@ -1,13 +1,15 @@
 const express = require("express");
 const path = require("path");
+const favicon = require("serve-favicon");
 const { connectDatabase } = require("./db/connect");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9999;
 
 connectDatabase(process.env.MONGODB_URI);
 
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index/route"));
 app.use("/api", require("./routes/api/route"));

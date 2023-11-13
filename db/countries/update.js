@@ -1,13 +1,13 @@
+const path = require("path");
 const { connectDatabase } = require("../connect");
-const { getAbsolutePath, readJsonFile } = require("../../lib/utils");
+const { readJsonFile } = require("../../lib/utils");
 const Country = require("../../models/country");
 
 const updateCountriesData = async (uri) => {
   try {
     await connectDatabase(uri);
-    console.log("MongoDB connected");
 
-    const data = await readJsonFile(getAbsolutePath("/db/countries/data.json"));
+    const data = await readJsonFile(path.join(__dirname, "data.json"));
 
     if (!data || !data.countries || !Array.isArray(data.countries)) {
       throw new Error("Invalid or missing data in the JSON file.");

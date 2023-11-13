@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const { connectDatabase } = require("./db/connect");
 const { getAbsolutePath } = require("./lib/utils");
 require("dotenv").config();
@@ -8,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 connectDatabase(process.env.MONGODB_URI);
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index/route"));
 app.use("/api", require("./routes/api/route"));
 app.all("*", (req, res) => {

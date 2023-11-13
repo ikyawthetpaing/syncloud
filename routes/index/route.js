@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (_, res) => {
   try {
-    res.sendFile(getAbsolutePath("/views/index.html"));
+    res.sendFile(getAbsolutePath("pages/index.html"));
   } catch (err) {
     console.error("Error sending file:", err);
     res.status(500).send("Internal Server Error");
